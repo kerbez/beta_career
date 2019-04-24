@@ -60,9 +60,15 @@
           </a>
         </li>
         <li class="sidebar">
-          <a href="">
+          <a href="{% url 'companies:company_list' %}">
             <i class="fa fa-user-circle"></i>
             <span>Companies</span>
+          </a>
+        </li>
+        <li class="sidebar">
+          <a href="{% url 'vacancies:vacancy_list' %}">
+            <i class="fa fa-user-circle"></i>
+            <span>Vacancies</span>
           </a>
         </li>
         <li class="sidebar-dropdown">
