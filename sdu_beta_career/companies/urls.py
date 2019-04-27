@@ -8,4 +8,5 @@ app_name = "companies"
 urlpatterns = [
     path('', views.company_list, name='company_list'),
     path('<int:pk>/', views.company_detail, name='company_detail'),
+    path('search', views.company_search, name='company_search'),
 ]

@@ -11,3 +11,8 @@ def company_list(request):
 def company_detail(request, pk):
     company = get_object_or_404(Company, pk=pk)
     return render(request, 'company_detail.html', {'company': company})
+
+
+def company_search(request):
+    companies = Company.objects.filter()
+    return render(request, 'company_search.html', {'companies': companies})

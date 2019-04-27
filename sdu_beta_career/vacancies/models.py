@@ -14,7 +14,7 @@ class Vacancy(models.Model):
         (4, '3-6 years', _('between 3 and 6 years')),
         (5, 'more than 6 years', _('more than 6 years')),
     )
-    busyness = Choices(
+    BUSYNESS = Choices(
         (1, 'full time', _('full time')),
         (2, 'part time', _('part time')),
         (3, 'project work', _('project work')),
