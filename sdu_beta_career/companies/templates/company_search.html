@@ -1,33 +1,34 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block main %}
 
 
 
 <main class="page-content">
   <div>
-    <div style="display: inline-block;">
-      <input type="text" placeholder="I am looking for…">
-    </div>
-    <div style="display: inline-block;">
-      <select>
+    <form id="searchform" action="{% url 'companies:get_queryset' %}" method="get" accept-charset="utf-8">
+    <input class="searchfield" id="searchbox" name="q" type="text" placeholder="I am looking for…">
+      <div style="display: inline-block;">
+      <select name="by_option" >
         <option value="searchVacancy" selected="">Vacancies</option>
         <option value="searchCompany">Companies</option>
       </select>
     </div>
-    <div style="display: inline-block;">
-      <button type="submit">
-        Search
-      </button>
-    </div>
+    <button class="btn btn-secondary btn-sm" type="submit">
+      Search
+    </button>
+    </form>
   </div>
+
 
     <div class="container-fluid" style="">
        <h1 align="center">Companies</h1>
       {% for company in companies %}
       <div class="company_list"  style="background-color: #eeeeee; margin-bottom: 20px; padding-bottom: 5px; border-radius: 5px; margin-right:20px;">
         <h3 style="margin: 10px; padding: 10px;"><a href="{% url 'companies:company_detail' pk=company.pk %}">{{ company.name }}</a></h3>
-        <a href="" style="margin-left: 10px;" >{{ company.address }}</a>
+
+        <img src="{{company.logo}}" class="card-img-top" alt="...">
+        <p href="" style="margin-left: 10px;" >{{ company.address }}</p>
         <p style="margin-left: 10px;">{{ company.description|linebreaksbr }}</p>
       </div>
       {% endfor %}

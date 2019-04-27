@@ -19,6 +19,7 @@ class Vacancy(models.Model):
         (2, 'part time', _('part time')),
         (3, 'project work', _('project work')),
     )
+    busyness = models.PositiveSmallIntegerField(choices=BUSYNESS, null=True)
     responsibility = models.CharField(max_length=200)
     requirements = models.CharField(max_length=200)
     conditions = models.CharField(max_length=200)
